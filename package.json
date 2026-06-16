@@ -1,0 +1,21 @@
+{
+  "name": "medhelp",
+  "version": "1.0.0",
+  "description": "MedHelp health information and medicine salt scanner app.",
+  "private": true,
+  "scripts": {
+    "serve": "node serve.js",
+    "cap:sync": "npx cap sync",
+    "cap:open": "npx cap open android",
+    "cap:live": "node cap-live.js",
+    "android:add": "npx cap add android",
+    "android:sync": "npx cap sync android",
+    "android:open": "npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/cli": "^7.0.0",
+    "@capacitor/core": "^7.0.0"
+  },
+  "devDependencies": {}
+}

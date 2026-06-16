@@ -1,0 +1,8 @@
+{
+  "appId": "com.medhelp.app",
+  "appName": "MedHelp",
+  "webDir": ".",
+  "server": {
+    "androidScheme": "https"
+  }
+}
