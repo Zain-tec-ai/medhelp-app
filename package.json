@@ -1,21 +1,19 @@
 {
-  "name": "medhelp",
+  "name": "medhelp-backend",
   "version": "1.0.0",
-  "description": "MedHelp health information and medicine salt scanner app.",
-  "private": true,
+  "description": "MedHelp health information platform API",
+  "main": "server.js",
   "scripts": {
-    "serve": "node serve.js",
-    "cap:sync": "npx cap sync",
-    "cap:open": "npx cap open android",
-    "cap:live": "node cap-live.js",
-    "android:add": "npx cap add android",
-    "android:sync": "npx cap sync android",
-    "android:open": "npx cap open android"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "dependencies": {
-    "@capacitor/android": "^7.0.0",
-    "@capacitor/cli": "^7.0.0",
-    "@capacitor/core": "^7.0.0"
+    "express": "^4.18.2",
+    "mysql2": "^3.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
