@@ -326,24 +326,49 @@ navLinks.addEventListener("click", () => {
   navToggle.setAttribute("aria-expanded", "false");
 });
 
-appointmentForm.addEventListener("submit", (event) => {
+appointmentForm.addEventListener("submit", async (event) => {
   event.preventDefault();
+
   const data = Object.fromEntries(new FormData(appointmentForm));
-  const appointments = storage.get("appointments");
-  appointments.push({ id: Date.now(), status: "new", createdAt: new Date().toISOString(), ...data });
-  storage.set("appointments", appointments);
-  appointmentForm.reset();
-  appointmentMessage.textContent = "Appointment request saved. Your team can connect this form to the database next.";
+
+  try {
+    const response = await fetch("https://medhelp-app.onrender.com/appointment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    appointmentForm.reset();
+    appointmentMessage.textContent = result.message;
+  } catch (error) {
+    appointmentMessage.textContent = "Could not submit appointment request.";
+  }
 });
 
-contactForm.addEventListener("submit", (event) => {
+contactForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const data = Object.fromEntries(new FormData(contactForm));
-  const messages = storage.get("contactMessages");
-  messages.push({ id: Date.now(), createdAt: new Date().toISOString(), ...data });
-  storage.set("contactMessages", messages);
-  contactForm.reset();
-  contactMessage.textContent = "Message saved successfully.";
-});
 
+  const data = Object.fromEntries(new FormData(contactForm));
+
+  try {
+    const response = await fetch("https://medhelp-app.onrender.com/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    contactForm.reset();
+    contactMessage.textContent = result.message;
+  } catch (error) {
+    contactMessage.textContent = "Could not send message.";
+  }
+});
 renderTopics();
