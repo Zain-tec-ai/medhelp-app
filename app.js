@@ -209,15 +209,26 @@ function renderSaltResults(matches) {
   `).join("");
 }
 
-function saveSaltScan(matches) {
+async function saveSaltScan(matches) {
   const scans = storage.get("saltScans");
-  scans.push({
-    id: Date.now(),
+  const scanData = {
     detectedText: saltText.value.trim(),
-    salts: matches.map((salt) => salt.name),
-    createdAt: new Date().toISOString()
-  });
-  storage.set("saltScans", scans);
+    salts: matches.map((salt) => salt.name)
+  };
+  
+  // Try to save to backend
+  try {
+    const result = await api.saltScans.create(scanData);
+    console.log('✅ Salt scan saved to database:', result);
+  } catch (error) {
+    console.log('⚠️ Could not save to backend, saving locally:', error);
+    scans.push({
+      id: Date.now(),
+      ...scanData,
+      createdAt: new Date().toISOString()
+    });
+    storage.set("saltScans", scans);
+  }
 }
 
 async function readMedicineImage() {
@@ -326,24 +337,60 @@ navLinks.addEventListener("click", () => {
   navToggle.setAttribute("aria-expanded", "false");
 });
 
-appointmentForm.addEventListener("submit", (event) => {
+// Appointment Form - Connected to API
+appointmentForm.addEventListener("submit", async (event) => {
   event.preventDefault();
+  
   const data = Object.fromEntries(new FormData(appointmentForm));
-  const appointments = storage.get("appointments");
-  appointments.push({ id: Date.now(), status: "new", createdAt: new Date().toISOString(), ...data });
-  storage.set("appointments", appointments);
-  appointmentForm.reset();
-  appointmentMessage.textContent = "Appointment request saved. Your team can connect this form to the database next.";
+  appointmentMessage.textContent = "Submitting...";
+  
+  try {
+    const result = await api.appointments.create(data);
+    if (result.id) {
+      appointmentForm.reset();
+      appointmentMessage.textContent = "✅ Appointment request submitted successfully!";
+      appointmentMessage.style.color = "green";
+    } else {
+      throw new Error(result.error || "Failed to create appointment");
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    appointmentMessage.textContent = "❌ Error: " + error.message;
+    appointmentMessage.style.color = "red";
+  }
 });
 
-contactForm.addEventListener("submit", (event) => {
+// Contact Form - Connected to API
+contactForm.addEventListener("submit", async (event) => {
   event.preventDefault();
+  
   const data = Object.fromEntries(new FormData(contactForm));
-  const messages = storage.get("contactMessages");
-  messages.push({ id: Date.now(), createdAt: new Date().toISOString(), ...data });
-  storage.set("contactMessages", messages);
-  contactForm.reset();
-  contactMessage.textContent = "Message saved successfully.";
+  contactMessage.textContent = "Sending...";
+  
+  try {
+    const result = await api.contacts.create(data);
+    if (result.id) {
+      contactForm.reset();
+      contactMessage.textContent = "✅ Message sent successfully!";
+      contactMessage.style.color = "green";
+    } else {
+      throw new Error(result.error || "Failed to send message");
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    contactMessage.textContent = "❌ Error: " + error.message;
+    contactMessage.style.color = "red";
+  }
 });
 
 renderTopics();
+
+// Check API connection on page load
+window.addEventListener('load', async () => {
+  try {
+    const health = await api.health();
+    console.log('✅ API Connection OK:', health);
+  } catch (error) {
+    console.warn('⚠️ API not available (backend not running):', error);
+  }
+});
