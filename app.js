@@ -1,3 +1,4 @@
+const API_BASE = "https://medhelp-app.onrender.com";
 const healthTopics = [
   {
     id: 1,
@@ -332,7 +333,7 @@ appointmentForm.addEventListener("submit", async (event) => {
   const data = Object.fromEntries(new FormData(appointmentForm));
 
   try {
-    const response = await fetch("https://medhelp-app.onrender.com/appointment", {
+    const res = await fetch(`${API_BASE}/appointment`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -340,12 +341,12 @@ appointmentForm.addEventListener("submit", async (event) => {
       body: JSON.stringify(data)
     });
 
-    const result = await response.json();
+    const result = await res.json();
 
     appointmentForm.reset();
-    appointmentMessage.textContent = result.message;
-  } catch (error) {
-    appointmentMessage.textContent = "Could not submit appointment request.";
+    appointmentMessage.textContent = result.message || "Appointment submitted successfully";
+  } catch (err) {
+    appointmentMessage.textContent = "Server error. Try again later.";
   }
 });
 
@@ -355,7 +356,7 @@ contactForm.addEventListener("submit", async (event) => {
   const data = Object.fromEntries(new FormData(contactForm));
 
   try {
-    const response = await fetch("https://medhelp-app.onrender.com/contact", {
+    const res = await fetch(`${API_BASE}/contact`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -363,12 +364,12 @@ contactForm.addEventListener("submit", async (event) => {
       body: JSON.stringify(data)
     });
 
-    const result = await response.json();
+    const result = await res.json();
 
     contactForm.reset();
-    contactMessage.textContent = result.message;
-  } catch (error) {
-    contactMessage.textContent = "Could not send message.";
+    contactMessage.textContent = result.message || "Message sent successfully";
+  } catch (err) {
+    contactMessage.textContent = "Server error. Try again later.";
   }
 });
 renderTopics();
