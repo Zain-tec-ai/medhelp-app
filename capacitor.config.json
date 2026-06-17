@@ -1,7 +1,15 @@
 {
   "appId": "com.medhelp.app",
   "appName": "MedHelp",
-  "webDir": ".",
+  "webDir": "public",
+  "bundledWebRuntime": false,
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 3000,
+      "launchAutoHide": true,
+      "backgroundColor": "#0f766e"
+    }
+  },
   "server": {
     "androidScheme": "https"
   }
