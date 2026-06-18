@@ -332,22 +332,21 @@ appointmentForm.addEventListener("submit", async (event) => {
 
   const data = Object.fromEntries(new FormData(appointmentForm));
 
-  try {
-    const res = await fetch(`${API_BASE}/appointment`, {
+  const response = await fetch(
+    "https://medhelp-app.onrender.com/appointment",
+    {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
-    });
+    }
+  );
 
-    const result = await res.json();
+  const result = await response.json();
 
-    appointmentForm.reset();
-    appointmentMessage.textContent = result.message || "Appointment submitted successfully";
-  } catch (err) {
-    appointmentMessage.textContent = "Server error. Try again later.";
-  }
+  appointmentForm.reset();
+  appointmentMessage.textContent = result.message;
 });
 
 contactForm.addEventListener("submit", async (event) => {
@@ -355,14 +354,22 @@ contactForm.addEventListener("submit", async (event) => {
 
   const data = Object.fromEntries(new FormData(contactForm));
 
-  try {
-    const res = await fetch(`${API_BASE}/contact`, {
+  const response = await fetch(
+    "https://medhelp-app.onrender.com/contact",
+    {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
-    });
+    }
+  );
+
+  const result = await response.json();
+
+  contactForm.reset();
+  contactMessage.textContent = result.message;
+});
 
     const result = await res.json();
 
