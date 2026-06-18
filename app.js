@@ -330,53 +330,57 @@ navLinks.addEventListener("click", () => {
 appointmentForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const data = Object.fromEntries(new FormData(appointmentForm));
+  try {
+    const data = Object.fromEntries(new FormData(appointmentForm));
 
-  const response = await fetch(
-    "https://medhelp-app.onrender.com/appointment",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    }
-  );
+    const response = await fetch(
+      "https://medhelp-app.onrender.com/appointment",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      }
+    );
 
-  const result = await response.json();
+    const result = await response.json();
 
-  appointmentForm.reset();
-  appointmentMessage.textContent = result.message;
+    appointmentForm.reset();
+    appointmentMessage.textContent =
+      result.message || "Appointment saved successfully";
+  } catch (err) {
+    appointmentMessage.textContent =
+      "Server error. Please try again later.";
+  }
 });
 
 contactForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const data = Object.fromEntries(new FormData(contactForm));
+  try {
+    const data = Object.fromEntries(new FormData(contactForm));
 
-  const response = await fetch(
-    "https://medhelp-app.onrender.com/contact",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    }
-  );
+    const response = await fetch(
+      "https://medhelp-app.onrender.com/contact",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      }
+    );
 
-  const result = await response.json();
-
-  contactForm.reset();
-  contactMessage.textContent = result.message;
-});
-
-    const result = await res.json();
+    const result = await response.json();
 
     contactForm.reset();
-    contactMessage.textContent = result.message || "Message sent successfully";
+    contactMessage.textContent =
+      result.message || "Message sent successfully";
   } catch (err) {
-    contactMessage.textContent = "Server error. Try again later.";
+    contactMessage.textContent =
+      "Server error. Please try again later.";
   }
 });
+
 renderTopics();
