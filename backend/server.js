@@ -1,17 +1,26 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+// Frontend serve karo
+app.use(express.static(path.join(__dirname, "../")));
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
+// Home page
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../index.html"));
+});
 
+// Appointment Schema
 const AppointmentSchema = new mongoose.Schema({
   name: String,
   phone: String,
@@ -20,6 +29,7 @@ const AppointmentSchema = new mongoose.Schema({
   reason: String
 });
 
+// Contact Schema
 const ContactSchema = new mongoose.Schema({
   email: String,
   message: String
@@ -28,10 +38,7 @@ const ContactSchema = new mongoose.Schema({
 const Appointment = mongoose.model("Appointment", AppointmentSchema);
 const Contact = mongoose.model("Contact", ContactSchema);
 
-app.get("/", (req, res) => {
-  res.send("MedHelp Backend Running");
-});
-
+// Appointment API
 app.post("/appointment", async (req, res) => {
   try {
     const appointment = new Appointment(req.body);
@@ -49,6 +56,7 @@ app.post("/appointment", async (req, res) => {
   }
 });
 
+// Contact API
 app.post("/contact", async (req, res) => {
   try {
     const contact = new Contact(req.body);
@@ -66,7 +74,7 @@ app.post("/contact", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
