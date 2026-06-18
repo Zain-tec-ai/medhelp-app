@@ -1,3 +1,4 @@
+const multer = require("multer");
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -7,6 +8,18 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "backend/uploads/");
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "-" + file.originalname);
+  }
+});
+
+const upload = multer({ storage });
+
+app.use("/uploads", express.static("backend/uploads"));
 
 // Frontend serve karo
 app.use(express.static(path.join(__dirname, "../")));
@@ -26,7 +39,8 @@ const AppointmentSchema = new mongoose.Schema({
   phone: String,
   department: String,
   date: String,
-  reason: String
+  reason: String,
+  report: String
 });
 
 // Contact Schema
@@ -57,14 +71,12 @@ app.post("/appointment", async (req, res) => {
 });
 
 // Contact API
-app.post("/contact", async (req, res) => {
+app.post("/upload", upload.single("file"), (req, res) => {
   try {
-    const contact = new Contact(req.body);
-    await contact.save();
-
     res.json({
       success: true,
-      message: "Contact saved successfully"
+      filename: req.file.filename,
+      path: `/uploads/${req.file.filename}`
     });
   } catch (error) {
     res.status(500).json({
@@ -72,10 +84,4 @@ app.post("/contact", async (req, res) => {
       message: error.message
     });
   }
-});
-
-const PORT = process.env.PORT || 10000;
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
 });
