@@ -1,65 +1,20 @@
-/* =========================
-   SIMPLE MOBILE MENU
-========================= */
-
-.nav-toggle {
-  display: none;
+body {
+  background: #0f766e !important;
+  color: white !important;
+  font-family: Arial, sans-serif !important;
 }
 
-@media (max-width: 900px) {
+h1 {
+  color: yellow !important;
+}
 
-  .navbar {
-    position: relative;
-    flex-wrap: wrap;
-  }
+a {
+  color: white !important;
+}
 
-  .nav-toggle {
-    display: block;
-    background: #ffffff;
-    color: #0f766e;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  .nav-links {
-    display: none !important;
-    width: 100%;
-    flex-direction: column;
-    background: white;
-    border-radius: 10px;
-    margin-top: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  }
-
-  .nav-links.open {
-    display: flex !important;
-  }
-
-  .nav-links a {
-    color: #102033;
-    padding: 15px;
-    border-bottom: 1px solid #e5e7eb;
-    text-align: left;
-  }
-
-  .nav-links a:last-child {
-    border-bottom: none;
-  }
-
-  .hero,
-  .split-section,
-  .feature-grid,
-  .results-grid,
-  .form-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .hero {
-    gap: 25px;
-  }
+button {
+  background: white !important;
+  color: #0f766e !important;
+  padding: 10px 20px !important;
+  border: none !important;
 }
