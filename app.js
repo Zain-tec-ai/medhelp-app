@@ -317,15 +317,19 @@ demoSaltButton.addEventListener("click", () => {
   scannerStatus.textContent = "Demo text loaded and scanned.";
 });
 
-navToggle.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("open");
-  navToggle.setAttribute("aria-expanded", String(isOpen));
-});
+if (navToggle && navLinks) {
 
-navLinks.addEventListener("click", () => {
-  navLinks.classList.remove("open");
-  navToggle.setAttribute("aria-expanded", "false");
-});
+  navToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  navLinks.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    navToggle.setAttribute("aria-expanded", "false");
+  });
+
+}
 
 appointmentForm.addEventListener("submit", async (event) => {
   event.preventDefault();
