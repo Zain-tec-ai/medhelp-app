@@ -1,53 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-<title>Appointment</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Appointment | MedHelp</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
 
+<header class="site-header">
+
+<nav class="navbar">
+
+<a class="brand" href="index.html">
+<span class="brand-mark">+</span>
+MedHelp
+</a>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="symptom.html">Symptoms</a>
+<a href="medicine.html">Medicines</a>
+<a href="scanner.html">Salt Scanner</a>
+<a href="appointment.html">Appointment</a>
+<a href="contact.html">Contact</a>
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div>
+<p class="eyebrow">Healthcare Support</p>
 
 <h1>Book Appointment</h1>
 
+<p class="hero-text">
+Schedule an appointment and share your health concerns with our healthcare team.
+</p>
+</div>
+
+<div class="search-panel">
+
+<h3>Appointment Request</h3>
 
 <form>
 
-
-<input placeholder="Name">
-
-<br><br>
-
-<input placeholder="Phone">
-
+<input type="text" placeholder="Full Name">
 
 <br><br>
 
-
-<textarea placeholder="Reason"></textarea>
-
+<input type="tel" placeholder="Phone Number">
 
 <br><br>
 
+<textarea placeholder="Reason for Appointment" rows="4"></textarea>
 
-<button class="btn btn-primary">
-Submit
+<br><br>
+
+<button type="submit" class="btn btn-primary">
+Submit Request
 </button>
-
 
 </form>
 
-
 <br>
 
-
-<a href="index.html">
+<a href="index.html" class="btn btn-secondary">
 Back Home
 </a>
 
+</div>
+
+</section>
+
+</header>
 
 </body>
-
 </html>
