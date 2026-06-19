@@ -1,4 +1,10 @@
-/* ===== MOBILE MENU FIX ===== */
+/* =========================
+   SIMPLE MOBILE MENU
+========================= */
+
+.nav-toggle {
+  display: none;
+}
 
 @media (max-width: 900px) {
 
@@ -9,33 +15,36 @@
 
   .nav-toggle {
     display: block;
+    background: #ffffff;
     color: #0f766e;
-    background: white;
     border: none;
     border-radius: 8px;
     padding: 8px 12px;
     font-size: 24px;
+    font-weight: bold;
     cursor: pointer;
   }
 
   .nav-links {
-    display: none;
+    display: none !important;
     width: 100%;
     flex-direction: column;
     background: white;
-    margin-top: 10px;
     border-radius: 10px;
+    margin-top: 10px;
     overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   }
 
   .nav-links.open {
-    display: flex;
+    display: flex !important;
   }
 
   .nav-links a {
     color: #102033;
     padding: 15px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
   }
 
   .nav-links a:last-child {
@@ -47,10 +56,10 @@
   .feature-grid,
   .results-grid,
   .form-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   .hero {
-    padding: 30px 0;
+    gap: 25px;
   }
 }
