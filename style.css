@@ -1,20 +1,110 @@
-body {
-  background: #0f766e !important;
-  color: white !important;
-  font-family: Arial, sans-serif !important;
+/* =========================
+   MEDHELP RESPONSIVE FIX
+========================= */
+
+/* Navbar */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  position:relative;
 }
 
-h1 {
-  color: yellow !important;
+.nav-links{
+  display:flex;
+  gap:20px;
+  align-items:center;
 }
 
-a {
-  color: white !important;
+.nav-toggle{
+  display:none;
+  background:#fff;
+  color:#0f766e;
+  border:none;
+  border-radius:8px;
+  padding:8px 12px;
+  font-size:24px;
+  cursor:pointer;
 }
 
-button {
-  background: white !important;
-  color: #0f766e !important;
-  padding: 10px 20px !important;
-  border: none !important;
+/* Tablet */
+@media (max-width: 900px){
+
+  .hero,
+  .split-section{
+    grid-template-columns:1fr !important;
+  }
+
+  .feature-grid,
+  .results-grid{
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .nav-toggle{
+    display:block;
+  }
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    right:0;
+    background:#fff;
+    flex-direction:column;
+    border-radius:10px;
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
+    z-index:999;
+  }
+
+  .nav-links.open{
+    display:flex;
+  }
+
+  .nav-links a{
+    color:#102033;
+    padding:15px;
+    border-bottom:1px solid #e5e7eb;
+    width:100%;
+  }
+
+  .nav-links a:last-child{
+    border-bottom:none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px){
+
+  .hero{
+    padding:30px 0 !important;
+    gap:25px;
+  }
+
+  .feature-grid,
+  .results-grid,
+  .stats-band,
+  .form-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .search-panel,
+  .form-card,
+  .contact-form{
+    padding:18px;
+  }
+
+  .hero h1{
+    font-size:2rem;
+  }
+
+  .site-footer{
+    flex-direction:column;
+    text-align:center;
+  }
 }
