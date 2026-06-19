@@ -1,17 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Medicines | MedHelp</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicine Library | MedHelp</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<header class="site-header">
+
+<nav class="navbar">
+
+<a class="brand" href="index.html">
+<span class="brand-mark">+</span>
+MedHelp
+</a>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="symptom.html">Symptoms</a>
+<a href="medicine.html">Medicines</a>
+<a href="scanner.html">Salt Scanner</a>
+<a href="appointment.html">Appointment</a>
+<a href="contact.html">Contact</a>
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div>
+<p class="eyebrow">Medicine Information</p>
+
 <h1>Medicine Library</h1>
 
-<p>Search medicines and learn about their uses.</p>
+<p class="hero-text">
+Search medicines and learn about their uses, dosage information and precautions.
+</p>
+</div>
 
-<input placeholder="Search medicine">
+<div class="search-panel">
+
+<h3>Search Medicine</h3>
+
+<input
+type="text"
+placeholder="Search medicine..."
+>
+
+<br><br>
 
 <button class="btn btn-primary">
 Search
@@ -19,7 +58,15 @@ Search
 
 <br><br>
 
-<a href="index.html">Back Home</a>
+<a href="index.html" class="btn btn-secondary">
+Back Home
+</a>
+
+</div>
+
+</section>
+
+</header>
 
 </body>
 </html>
