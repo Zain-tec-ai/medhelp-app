@@ -1,421 +1,225 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MedHelp</title>
-
+<title>MedHelp - Your Health Companion</title>
 
 <link rel="stylesheet" href="style.css">
 
+<style>
+.nav-links{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.nav-links li{
+    list-style:none;
+}
+</style>
+
 </head>
-
 <body>
-
 
 <header class="site-header">
 
-<nav class="navbar">
-    <div class="brand">
-        <span class="brand-mark">+</span>
-        <span>Med.Help</span>
-    </div>
+    <nav class="navbar">
 
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="symptoms.html">Symptoms</a></li>
-        <li><a href="medicines.html">Medicines</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
+        <div class="brand">
+            <span class="brand-mark">+</span>
+            <span>Med.Help</span>
+        </div>
 
-<section class="hero">
-    <p class="hero-text">
-        Search symptoms, medicines, conditions and get useful health information from one platform.
-    </p>
-</section>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="symptoms.html">Symptoms</a></li>
+            <li><a href="medicines.html">Medicines</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
 
+    </nav>
 
+    <section class="hero">
 
-<section class="hero">
+        <div class="hero-copy">
 
+            <p class="eyebrow">
+                Trusted Health Information Platform
+            </p>
 
-<div class="hero-copy">
+            <h1>
+                Find Simple & Reliable Health Guidance Faster
+            </h1>
 
+            <p class="hero-text">
+                Search symptoms, medicines, conditions and get useful health information from one platform.
+            </p>
 
-<p class="eyebrow">
-Trusted Health Information Platform
-</p>
+            <div class="hero-actions">
 
+                <a href="medicines.html" class="btn btn-primary">
+                    Search Health Library
+                </a>
 
-<h1>
-Find simple and reliable health guidance faster
-</h1>
+                <a href="scanner.html" class="btn btn-secondary">
+                    Scan Medicine Salt
+                </a>
 
+            </div>
 
+        </div>
 
+        <div class="search-panel">
 
+            <h3>Search Health Topics</h3>
 
+            <label>
+                Search
+                <div class="search-row">
 
-<div class="hero-actions">
+                    <input
+                        type="search"
+                        placeholder="Try fever, diabetes, paracetamol..."
+                    >
 
+                    <button class="btn btn-primary">
+                        Search
+                    </button>
 
-<a href="medicines.html" class="btn btn-primary">
+                </div>
+            </label>
 
-Search Health Library
+            <p class="search-hint">
+                Educational information only. Not a medical diagnosis.
+            </p>
 
-</a>
+        </div>
 
-
-
-<a href="scanner.html" class="btn btn-secondary">
-
-Scan Medicine Salt
-
-</a>
-
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="search-panel">
-
-
-<h3>
-Search Health Topics
-</h3>
-
-
-<input 
-type="search"
-placeholder="Try fever, diabetes, paracetamol..."
->
-
-
-<button class="btn btn-primary">
-
-Search
-
-</button>
-
-
-<p>
-
-Educational information only. Not a medical diagnosis.
-
-</p>
-
-
-</div>
-
-
-</section>
-
+    </section>
 
 </header>
 
-
-
-
-
-
 <main>
 
+    <section class="stats-band">
 
+        <article>
+            <strong>24/7</strong>
+            <span>Health Library Access</span>
+        </article>
 
-<section class="stats-band">
+        <article>
+            <strong>120+</strong>
+            <span>Medical Topics</span>
+        </article>
 
+        <article>
+            <strong>15 min</strong>
+            <span>Care Callback Target</span>
+        </article>
 
-<div>
+    </section>
 
-<strong>
-24/7
-</strong>
+    <section class="section">
 
-<span>
-Health Library Access
-</span>
+        <div class="section-heading">
 
-</div>
+            <p class="eyebrow">Features</p>
 
+            <h2>
+                Everything You Need For Better Health Information
+            </h2>
 
+        </div>
 
-<div>
+        <div class="feature-grid">
 
-<strong>
-120+
-</strong>
+            <div class="feature-card">
+                <span class="icon">S</span>
+                <h3>Smart Search</h3>
+                <p>Find symptoms, medicines and conditions instantly.</p>
+            </div>
 
-<span>
-Medical Topics
-</span>
+            <div class="feature-card">
+                <span class="icon">M</span>
+                <h3>Medicine Guide</h3>
+                <p>Learn uses, dosage and precautions of medicines.</p>
+            </div>
 
-</div>
+            <div class="feature-card">
+                <span class="icon">A</span>
+                <h3>Appointments</h3>
+                <p>Connect with healthcare professionals quickly.</p>
+            </div>
 
+            <div class="feature-card">
+                <span class="icon">C</span>
+                <h3>Medicine Scanner</h3>
+                <p>Scan medicine labels and identify salts easily.</p>
+            </div>
 
+        </div>
 
-<div>
+    </section>
 
-<strong>
-15 min
-</strong>
+    <section class="section split-section">
 
-<span>
-Care Callback Target
-</span>
+        <div>
 
-</div>
+            <p class="eyebrow">Why MedHelp</p>
 
+            <h2>
+                Your Personal Health Information Companion
+            </h2>
 
-</section>
+            <p class="muted">
+                MedHelp provides simple and reliable health information
+                to help users understand symptoms, medicines and common
+                medical conditions.
+            </p>
 
+        </div>
 
+        <div class="notice">
 
+            <strong>Important Notice</strong>
 
+            <span>
+                This platform is for educational purposes only.
+                Always consult a qualified healthcare professional
+                for diagnosis and treatment.
+            </span>
 
+        </div>
 
-
-<section class="section">
-
-
-<div class="section-heading">
-
-
-<p class="eyebrow">
-Features
-</p>
-
-
-<h2>
-Everything you need for better health information
-</h2>
-
-
-</div>
-
-
-
-
-
-<div class="feature-grid">
-
-
-
-<div class="feature-card">
-
-
-<span class="icon">
-S
-</span>
-
-
-<h3>
-Smart Search
-</h3>
-
-
-<p>
-Find symptoms, medicines and conditions easily.
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="feature-card">
-
-
-<span class="icon">
-M
-</span>
-
-
-<h3>
-Medicine Guide
-</h3>
-
-
-<p>
-Learn about medicines and their uses.
-</p>
-
-
-</div>
-
-
-
-
-
-
-<div class="feature-card">
-
-
-<span class="icon">
-A
-</span>
-
-
-<h3>
-Appointments
-</h3>
-
-
-<p>
-Request appointments with healthcare providers.
-</p>
-
-
-</div>
-
-
-
-
-
-
-<div class="feature-card">
-
-
-<span class="icon">
-C
-</span>
-
-
-<h3>
-Salt Scanner
-</h3>
-
-
-<p>
-Read medicine composition using image scanning.
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-<section class="section split-section">
-
-
-<div>
-
-
-<p class="eyebrow">
-Why MedHelp
-</p>
-
-
-<h2>
-Your personal health information companion
-</h2>
-
-
-<p class="muted">
-
-MedHelp helps users understand medicines, symptoms and health topics in a simple way.
-
-</p>
-
-
-</div>
-
-
-
-
-<div class="notice">
-
-
-<strong>
-Important
-</strong>
-
-
-<span>
-
-Always consult a qualified doctor for diagnosis and treatment.
-
-</span>
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
+    </section>
 
 </main>
 
-
-
-
-
-
-
 <footer class="site-footer">
 
+    <p>
+        © 2026 MedHelp. All Rights Reserved.
+    </p>
 
-<p>
+    <div class="footer-links">
 
-© 2026 MedHelp. Educational health platform.
+        <a href="privacy-policy.html">
+            Privacy Policy
+        </a>
 
-</p>
+        <a href="terms.html">
+            Terms & Conditions
+        </a>
 
-
-
-<div class="footer-links">
-
-
-<a href="privacy-policy.html">
-Privacy
-</a>
-
-
-<a href="terms.html">
-Terms
-</a>
-
-
-</div>
-
-
+    </div>
 
 </footer>
 
-
-
 <script src="app.js"></script>
 
-
-
 </body>
-
-
 </html>
+```
