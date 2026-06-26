@@ -1,224 +1,246 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Med.Help - Your Health Companion</title>
-
-<link rel="stylesheet" href="style.css">
-
-<style>
-.nav-links{
-    list-style:none;
-    margin:0;
-    padding:0;
-}
-
-.nav-links li{
-    list-style:none;
-}
-</style>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="MedHelp is a simple health information platform for symptoms, medicines, articles, and appointment requests." />
+  <meta name="theme-color" content="#0f766e" />
+  <title>MedHelp | Health Information Platform</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=2" />
 </head>
 <body>
-
-<header class="site-header">
-
-    <nav class="navbar">
-
-        <div class="brand">
-            <span class="brand-mark">+</span>
-            <span>Med.Help</span>
-        </div>
-
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="symptoms.html">Symptoms</a></li>
-            <li><a href="medicines.html">Medicines</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-
+  <header class="site-header" id="home">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="MedHelp home">
+        <span class="brand-mark">+</span>
+        <span>MedHelp</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#library">Library</a>
+        <a href="#scanner">Salt Scanner</a>
+        <a href="#appointment">Appointment</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
 
     <section class="hero">
-
-        <div class="hero-copy">
-
-            <p class="eyebrow">
-                Trusted Health Information Platform
-            </p>
-
-            <h1>
-                Find Simple & Reliable Health Guidance Faster
-            </h1>
-
-            <p class="hero-text">
-                Search symptoms, medicines, conditions and get useful health information from one platform.
-            </p>
-
-            <div class="hero-actions">
-
-                <a href="medicines.html" class="btn btn-primary">
-                    Search Health Library
-                </a>
-
-                <a href="scanner.html" class="btn btn-secondary">
-                    Scan Medicine Salt
-                </a>
-
-            </div>
-
+      <div class="hero-copy">
+        <p class="eyebrow">Trusted health information platform</p>
+        <h1>Find simple, reliable health guidance faster.</h1>
+        <p class="hero-text">Search symptoms, medicines, and conditions, save useful articles, and request a care callback from one clean dashboard.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#library">Search Health Library</a>
+          <a class="btn btn-secondary" href="#scanner">Scan Medicine Salt</a>
+          <a class="btn btn-secondary" href="#appointment">Book Appointment</a>
         </div>
+      </div>
 
-        <div class="search-panel">
-
-            <h3>Search Health Topics</h3>
-
-            <label>
-                Search
-                <div class="search-row">
-
-                    <input
-                        type="search"
-                        placeholder="Try fever, diabetes, paracetamol..."
-                    >
-
-                    <button class="btn btn-primary">
-                        Search
-                    </button>
-
-                </div>
-            </label>
-
-            <p class="search-hint">
-                Educational information only. Not a medical diagnosis.
-            </p>
-
+      <form class="search-panel" id="searchForm" role="search">
+        <label for="searchInput">Search symptoms, medicines, conditions</label>
+        <div class="search-row">
+          <input id="searchInput" type="search" placeholder="Try fever, diabetes, paracetamol..." autocomplete="off" />
+          <button class="btn btn-primary" type="submit">Search</button>
         </div>
+        <p class="search-hint">Educational information only. For emergencies, call local emergency services.</p>
+      </form>
+    </section>
+  </header>
 
+  <main>
+    <section class="stats-band" aria-label="MedHelp highlights">
+      <article>
+        <strong>24/7</strong>
+        <span>Health library access</span>
+      </article>
+      <article>
+        <strong>120+</strong>
+        <span>Common topics ready</span>
+      </article>
+      <article>
+        <strong>15 min</strong>
+        <span>Average callback target</span>
+      </article>
     </section>
 
-</header>
-
-<main>
-
-    <section class="stats-band">
-
-        <article>
-            <strong>24/7</strong>
-            <span>Health Library Access</span>
+    <section class="section" id="features">
+      <div class="section-heading">
+        <p class="eyebrow">Features</p>
+        <h2>Everything patients expect on day one</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="icon">S</span>
+          <h3>Smart Search</h3>
+          <p>Search symptoms, medicines, conditions, and care topics from one place.</p>
         </article>
-
-        <article>
-            <strong>120+</strong>
-            <span>Medical Topics</span>
+        <article class="feature-card">
+          <span class="icon">A</span>
+          <h3>Appointments</h3>
+          <p>Collect patient appointment requests with reason, date, and department.</p>
         </article>
-
-        <article>
-            <strong>15 min</strong>
-            <span>Care Callback Target</span>
+        <article class="feature-card">
+          <span class="icon">L</span>
+          <h3>Saved Library</h3>
+          <p>Let users save important health articles locally for quick follow-up reading.</p>
         </article>
-
+        <article class="feature-card">
+          <span class="icon">C</span>
+          <h3>Contact Flow</h3>
+          <p>Capture support messages and route them to your backend database later.</p>
+        </article>
+        <article class="feature-card">
+          <span class="icon">M</span>
+          <h3>Salt Scanner</h3>
+          <p>Scan the back side of a medicine strip or bottle and identify common salt ingredients.</p>
+        </article>
+      </div>
     </section>
 
-    <section class="section">
-
-        <div class="section-heading">
-
-            <p class="eyebrow">Features</p>
-
-            <h2>
-                Everything You Need For Better Health Information
-            </h2>
-
-        </div>
-
-        <div class="feature-grid">
-
-            <div class="feature-card">
-                <span class="icon">S</span>
-                <h3>Smart Search</h3>
-                <p>Find symptoms, medicines and conditions instantly.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="icon">M</span>
-                <h3>Medicine Guide</h3>
-                <p>Learn uses, dosage and precautions of medicines.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="icon">A</span>
-                <h3>Appointments</h3>
-                <p>Connect with healthcare professionals quickly.</p>
-            </div>
-
-            <div class="feature-card">
-                <span class="icon">C</span>
-                <h3>Medicine Scanner</h3>
-                <p>Scan medicine labels and identify salts easily.</p>
-            </div>
-
-        </div>
-
+    <section class="section library-section" id="library">
+      <div class="section-heading">
+        <p class="eyebrow">Health Library</p>
+        <h2>Search medical topics</h2>
+      </div>
+      <div class="filters" aria-label="Library filters">
+        <button class="filter-btn active" type="button" data-filter="all">All</button>
+        <button class="filter-btn" type="button" data-filter="symptom">Symptoms</button>
+        <button class="filter-btn" type="button" data-filter="medicine">Medicines</button>
+        <button class="filter-btn" type="button" data-filter="condition">Conditions</button>
+      </div>
+      <div class="results-grid" id="resultsGrid" aria-live="polite"></div>
     </section>
 
-    <section class="section split-section">
+    <section class="section split-section scanner-section" id="scanner">
+      <div>
+        <p class="eyebrow">Medicine Scanner</p>
+        <h2>Scan salts from the back side of medicine</h2>
+        <p class="muted">Upload or capture a photo of the composition label, then confirm the detected text. MedHelp will highlight common salt names and explain what each one is usually used for.</p>
+        <div class="notice scanner-notice">
+          <strong>Check before use</strong>
+          <span>Salt detection helps you read labels. It does not confirm dose, safety, allergies, pregnancy suitability, or drug interactions.</span>
+        </div>
+      </div>
 
-        <div>
+      <div class="scanner-card">
+        <label class="upload-box" for="medicineImage">
+          <span class="upload-icon">+</span>
+          <strong>Upload or capture medicine label</strong>
+          <span>Use the back side where composition or salts are printed.</span>
+          <input id="medicineImage" type="file" accept="image/*" capture="environment" />
+        </label>
 
-            <p class="eyebrow">Why MedHelp</p>
-
-            <h2>
-                Your Personal Health Information Companion
-            </h2>
-
-            <p class="muted">
-                MedHelp provides simple and reliable health information
-                to help users understand symptoms, medicines and common
-                medical conditions.
-            </p>
-
+        <div class="scanner-preview" id="scannerPreview">
+          <span>No image selected</span>
+          <img id="medicinePreview" alt="Selected medicine label preview" hidden />
         </div>
 
+        <label>
+          Detected label text
+          <textarea id="saltText" rows="5" placeholder="Example: Composition: Paracetamol 500 mg, Caffeine 30 mg"></textarea>
+        </label>
+
+        <div class="scanner-actions">
+          <button class="btn btn-primary" id="ocrSaltButton" type="button">Auto Read Image</button>
+          <button class="btn btn-primary" id="scanSaltButton" type="button">Find Salts</button>
+          <button class="btn btn-light" id="demoSaltButton" type="button">Use Demo Text</button>
+        </div>
+
+        <p class="scanner-status" id="scannerStatus" role="status"></p>
+        <div class="salt-results" id="saltResults" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section split-section" id="appointment">
+      <div>
+        <p class="eyebrow">Care Request</p>
+        <h2>Request an appointment</h2>
+        <p class="muted">This starter form saves demo requests in the browser. Connect it to the SQL tables in `database.sql` when you add a backend.</p>
         <div class="notice">
-
-            <strong>Important Notice</strong>
-
-            <span>
-                This platform is for educational purposes only.
-                Always consult a qualified healthcare professional
-                for diagnosis and treatment.
-            </span>
-
+          <strong>Emergency?</strong>
+          <span>Do not wait for an appointment request. Call your local emergency number immediately.</span>
         </div>
-
+      </div>
+      <form class="form-card" id="appointmentForm">
+        <div class="form-grid">
+          <label>
+            Full name
+            <input name="name" type="text" placeholder="Your name" required />
+          </label>
+          <label>
+            Phone
+            <input name="phone" type="tel" placeholder="+1 555 123 4567" required />
+          </label>
+          <label>
+            Department
+            <select name="department" required>
+              <option value="">Choose department</option>
+              <option>General Medicine</option>
+              <option>Cardiology</option>
+              <option>Dermatology</option>
+              <option>Pediatrics</option>
+              <option>Mental Health</option>
+            </select>
+          </label>
+          <label>
+            Preferred date
+            <input name="date" type="date" required />
+          </label>
+        </div>
+        <label>
+          Reason for visit
+          <textarea name="reason" rows="4" placeholder="Briefly describe your concern" required></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit">Submit Request</button>
+        <p class="form-message" id="appointmentMessage" role="status"></p>
+      </form>
     </section>
 
-</main>
+    <section class="section contact-section" id="contact">
+      <div class="section-heading">
+        <p class="eyebrow">Contact</p>
+        <h2>Need help with MedHelp?</h2>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <label>
+          Email
+          <input name="email" type="email" placeholder="you@example.com" required />
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit">Send Message</button>
+        <p class="form-message" id="contactMessage" role="status"></p>
+      </form>
+    </section>
+  </main>
 
-<footer class="site-footer">
-
-    <p>
-        © 2026 MedHelp. All Rights Reserved.
-    </p>
-
+  <footer class="site-footer">
+    <p>&copy; 2026 MedHelp. Educational content only, not a medical diagnosis.</p>
     <div class="footer-links">
-
-        <a href="privacy-policy.html">
-            Privacy Policy
-        </a>
-
-        <a href="terms.html">
-            Terms & Conditions
-        </a>
-
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="#home">Back to top</a>
     </div>
+  </footer>
 
-</footer>
-
-<script src="app.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js");
+    }
+  </script>
 </body>
 </html>
