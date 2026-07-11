@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Library | MedHelp</title>
+<link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <nav class="navbar" aria-label="Main navigation">
+    <a class="brand" href="index.html" aria-label="MedHelp home">
+      <span class="brand-mark">+</span>
+      <span>MedHelp</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="symptom.html">Symptoms</a>
+      <a href="library.html">Library</a>
+      <a href="medicine.html">Medicines</a>
+      <a href="scanner.html">Salt Scanner</a>
+      <a href="appointment.html">Appointment</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="section library-section">
+    <div class="section-heading">
+      <p class="eyebrow">Health Library</p>
+      <h2>Search medical topics</h2>
+    </div>
+    <div class="filters" aria-label="Library filters">
+      <button class="filter-btn active" type="button" data-filter="all">All</button>
+      <button class="filter-btn" type="button" data-filter="symptom">Symptoms</button>
+      <button class="filter-btn" type="button" data-filter="medicine">Medicines</button>
+      <button class="filter-btn" type="button" data-filter="condition">Conditions</button>
+    </div>
+    <div class="results-grid" id="resultsGrid" aria-live="polite"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 MedHelp. Educational content only, not a medical diagnosis.</p>
+  <div class="footer-links">
+    <a href="privacy-policy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  (function () {
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      if (a.getAttribute('href') === path) a.classList.add('active');
+    });
+
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      navLinks.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    }
+  })();
+</script>
+</body>
+</html>
