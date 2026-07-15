@@ -1,0 +1,18 @@
+signingConfigs {
+    release {
+        // Use environment variables (set by the workflow)
+        storeFile file(System.getenv('KEYSTORE_PATH') ?: '../medhelp-release.keystore')
+        storePassword System.getenv('KEYSTORE_PASSWORD')
+        keyAlias System.getenv('KEY_ALIAS')
+        keyPassword System.getenv('KEY_PASSWORD')
+    }
+}
+
+buildTypes {
+    release {
+        signingConfig signingConfigs.release
+        minifyEnabled false
+        // proguard / R8 rules if you want to enable optimization:
+        // proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+}
