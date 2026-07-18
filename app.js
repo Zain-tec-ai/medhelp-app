@@ -1,4 +1,4 @@
-const API_BASE = "https://medhelp-app.onrender.com";
+const API_BASE = "https://medzen-app.onrender.com";
 const healthTopics = [
   {
     id: 1,
@@ -338,7 +338,7 @@ appointmentForm.addEventListener("submit", async (event) => {
     const data = Object.fromEntries(new FormData(appointmentForm));
 
     const response = await fetch(
-      "https://medhelp-app.onrender.com/appointment",
+      "https://medzen-app.onrender.com/appointment",
       {
         method: "POST",
         headers: {
@@ -366,7 +366,7 @@ contactForm.addEventListener("submit", async (event) => {
     const data = Object.fromEntries(new FormData(contactForm));
 
     const response = await fetch(
-      "https://medhelp-app.onrender.com/contact",
+      "https://medzen-app.onrender.com/contact",
       {
         method: "POST",
         headers: {

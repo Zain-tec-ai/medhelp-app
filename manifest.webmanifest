@@ -1,6 +1,6 @@
 {
-  "name": "MedHelp",
-  "short_name": "MedHelp",
+  "name": "MedZen",
+  "short_name": "MedZen",
   "description": "Search health topics, scan medicine salts, and request appointments.",
   "start_url": "./index.html",
   "scope": "./",

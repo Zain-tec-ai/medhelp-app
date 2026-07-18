@@ -1,6 +1,6 @@
 {
-  "appId": "com.medhelp.app",
-  "appName": "MedHelp",
+  "appId": "com.medzen.app",
+  "appName": "MedZen",
   "webDir": "public",
   "bundledWebRuntime": false,
   "plugins": {

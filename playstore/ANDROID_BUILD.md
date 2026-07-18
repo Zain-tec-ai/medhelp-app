@@ -1,4 +1,4 @@
-# Android App Build Guide
+# MedZen Performance Optimization Guide
 
 ## Prerequisites
 
@@ -31,8 +31,8 @@ Edit `capacitor.config.json`:
 
 ```json
 {
-  "appId": "com.medhelp.app",
-  "appName": "MedHelp",
+  "appId": "com.medzen.app",
+  "appName": "MedZen",
   "webDir": "public",
   "plugins": {
     "Camera": {
@@ -67,17 +67,17 @@ npx cap open android
 ### Generate Keystore
 
 ```bash
-keytool -genkey -v -keystore medhelp-release.keystore \
+keytool -genkey -v -keystore medzen-release.keystore \
   -keyalg RSA -keysize 2048 -validity 10000 \
-  -alias medhelp-app
+  -alias medzen-app
 ```
 
 ### Sign APK
 
 ```bash
 jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 \
-  -keystore medhelp-release.keystore \
-  app-release-unsigned.apk medhelp-app
+  -keystore medzen-release.keystore \
+  app-release-unsigned.apk medzen-app
 ```
 
 ### Optimize APK
@@ -94,7 +94,7 @@ zipalign -v 4 app-release-unsigned.apk app-release.apk
 - Set up billing
 
 ### 2. Create App Listing
-- App name: "MedHelp"
+- App name: "MedZen"
 - Category: "Medical"
 - Content rating: Complete questionnaire
 - Pricing: Free
