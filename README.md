@@ -1,59 +1,52 @@
-# MedHelp Starter App
+# medicine-db
 
-This folder contains a simple launch-ready frontend starter for a health information website/app.
+This folder contains a standalone migration + seed + test script for a MedHelp-style PostgreSQL database.
 
-## Files
+Files:
+- migrations/001_create_schema.sql — full DB schema (Postgres)
+- seed/002_seed_data.sql — sample test data
+- scripts/test_connection.py — simple Python script to verify DB connectivity
+- .env.example — template for DB credentials
+- .gitignore — repo ignores
+- README.md — this file
 
-- `index.html` - Main website page.
-- `style.css` - Responsive visual design.
-- `app.js` - Search, filters, saved topics, salt scanner, appointment form, and contact form.
-- `database.sql` - MySQL database schema and starter seed data.
-- `manifest.webmanifest` and `sw.js` - PWA install/offline support.
-- `playstore/` - Google Play listing copy and launch checklist.
-- `capacitor.config.json` and `package.json` - Android packaging starter files.
+Quick start (local Postgres)
+1. Copy .env.example:
+   cp .env.example .env
+   Edit .env and set DB connection variables.
 
-## How to Run
+2. Create the database (replace values as needed):
+   psql -h $DB_HOST -U $DB_USER -c "CREATE DATABASE ${DB_NAME};"
 
-Open `index.html` in a browser. No build step is required.
+3. Apply schema:
+   psql "host=$DB_HOST port=$DB_PORT dbname=$DB_NAME user=$DB_USER password=$DB_PASSWORD" \
+     -f migrations/001_create_schema.sql
 
-For the local preview server:
+4. Seed sample data (optional):
+   psql "host=$DB_HOST port=$DB_PORT dbname=$DB_NAME user=$DB_USER password=$DB_PASSWORD" \
+     -f seed/002_seed_data.sql
 
-```bash
-python -m http.server 5502
-```
+5. Test connection:
+   pip install psycopg2-binary python-dotenv
+   python scripts/test_connection.py
 
-Then open `http://localhost:5502`.
+Notes and next steps
+- Password hashes in seed are placeholders. Integrate your auth flow (bcrypt/argon2) to create real hashes.
+- Store sensitive files (images/PDFs) in secure object storage (S3) and keep only references (signed URLs).
+- For PHI compliance:
+  - Encrypt backups and DB storage.
+  - Consider application-layer field encryption where required.
+  - Implement thorough audit logging and access controls (Row Level Security or application RBAC).
+- To commit these files to your repo:
+  - Create a branch, add files, commit and push:
+    git checkout -b medicine-db
+    git add migrations/001_create_schema.sql seed/002_seed_data.sql scripts/test_connection.py .env.example .gitignore README.md
+    git commit -m "Add medicine-db migration, seed, and tests"
+    git push --set-upstream origin medicine-db
 
-## Database Setup
+If you want, I can:
+- Commit these files directly to the medicine-db-schema branch in the repo for you.
+- Convert the schema to a Prisma schema and generate migrations.
+- Create a Node/Express example for basic CRUD on appointments and records.
 
-Import `database.sql` into MySQL:
-
-```sql
-SOURCE database.sql;
-```
-
-The current frontend saves form submissions in browser `localStorage` for demo purposes. When you add a backend, connect these forms to the `appointments` and `contact_messages` tables.
-
-The salt scanner previews uploaded medicine-label photos and uses browser OCR through Tesseract.js when the CDN is available. Users can also type or paste the composition text manually. Save production scan results to `salt_scans`.
-
-## Google Play Packaging
-
-This app is ready to package with Capacitor after Android Studio, Java, and the Android SDK are installed:
-
-```bash
-npm install
-npx cap add android
-npx cap sync android
-npx cap open android
-```
-
-Build a signed Android App Bundle (`.aab`) from Android Studio and upload it in Play Console. Use `playstore/launch-checklist.md` before submitting.
-
-## Launch Checklist
-
-- Replace demo medical content with reviewed content from qualified professionals.
-- Add user authentication and real password hashing on the backend.
-- Connect forms to an API.
-- Replace CDN OCR with your own OCR/API pipeline if you need offline support, faster scans, or medical-grade audit logs.
-- Add privacy policy, terms, and medical disclaimer pages.
-- Configure hosting, SSL, backups, and database access controls.
+Tell me which of the above you'd like me to do next.

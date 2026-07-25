@@ -1,0 +1,14 @@
+# .gitignore - medicine-db
+.env
+.env.local
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+db.sqlite3
+node_modules/
+.vscode/
+.DS_Store
+.idea/
+*.log
