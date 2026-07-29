@@ -1,34 +1,83 @@
-const mongoose = require("mongoose");
+const express = require("express");
+const router = express.Router();
 
-const MedicineSchema = new mongoose.Schema(
-  {
-    drugCode: {
-      type: Number,
-      required: true,
-      unique: true
-    },
+const Medicine = require("../models/Medicine");
 
-    genericName: {
-      type: String,
-      required: true
-    },
+// Search Medicines
+router.get("/search", async (req, res) => {
+  try {
+    const query = req.query.q;
 
-    unitSize: {
-      type: String
-    },
-
-    mrp: {
-      type: Number
-    },
-
-    groupName: {
-      type: String
+    if (!query) {
+      return res.status(400).json({
+        success: false,
+        message: "Search query is required"
+      });
     }
-  },
-  {
-    collection: "medicine",
-    timestamps: true
-  }
-);
 
-module.exports = mongoose.model("Medicine", MedicineSchema);
+    const medicines = await Medicine.find({
+      genericName: {
+        $regex: query,
+        $options: "i"
+      }
+    }).limit(20);
+
+    res.status(200).json({
+      success: true,
+      count: medicines.length,
+      data: medicines
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+});
+
+// Get All Medicines
+router.get("/", async (req, res) => {
+  try {
+    const medicines = await Medicine.find().limit(100);
+
+    res.status(200).json({
+      success: true,
+      count: medicines.length,
+      data: medicines
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+});
+
+// Get Medicine by ID
+router.get("/:id", async (req, res) => {
+  try {
+    const medicine = await Medicine.findById(req.params.id);
+
+    if (!medicine) {
+      return res.status(404).json({
+        success: false,
+        message: "Medicine not found"
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: medicine
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+});
+
+module.exports = router;
