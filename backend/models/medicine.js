@@ -4,20 +4,16 @@ const MedicineSchema = new mongoose.Schema(
   {
     drugCode: {
       type: Number,
-      unique: true,
-      required: true
+      unique: true
     },
-    genericName: {
-      type: String,
-      required: true
-    },
+
+    genericName: String,
     unitSize: String,
     mrp: Number,
     groupName: String
   },
   {
-    collection: "medicine",
-    timestamps: true
+    collection: "medicine"
   }
 );
 
