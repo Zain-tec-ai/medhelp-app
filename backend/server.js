@@ -9,7 +9,6 @@ const Medicine = require("./models/Medicine");
 
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
-dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 const app = express();
 
