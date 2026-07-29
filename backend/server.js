@@ -1,12 +1,13 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
 const multer = require("multer");
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path");
 const fs = require("fs");
-
 const Medicine = require("./models/Medicine");
+
+dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
