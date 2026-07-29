@@ -5,29 +5,19 @@ const MedicineSchema = new mongoose.Schema(
     drugCode: {
       type: Number,
       required: true,
-      unique: true
+      unique: true,
     },
-
     genericName: {
       type: String,
-      required: true
+      required: true,
     },
-
-    unitSize: {
-      type: String
-    },
-
-    mrp: {
-      type: Number
-    },
-
-    groupName: {
-      type: String
-    }
+    unitSize: String,
+    mrp: Number,
+    groupName: String,
   },
   {
     collection: "medicine",
-    timestamps: true
+    timestamps: true,
   }
 );
 
