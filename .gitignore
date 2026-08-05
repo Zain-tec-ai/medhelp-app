@@ -1,14 +1,35 @@
-# .gitignore - medicine-db
+# Environment Variables
 .env
 .env.local
+
+# Google Cloud Credentials
+backend/credentials/
+credentials/
+vision-key.json
+
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
 db.sqlite3
+
+# Node.js
 node_modules/
+npm-debug.log*
+
+# Uploads (temporary OCR images)
+backend/uploads/
+uploads/
+
+# IDE
 .vscode/
-.DS_Store
 .idea/
+
+# OS Files
+.DS_Store
+
+# Logs
 *.log
+logs/
