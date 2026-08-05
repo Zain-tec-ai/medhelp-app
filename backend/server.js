@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path");
 const fs = require("fs");
-const Medicine = require("./models/Medicine");
+const Medicine = require("./models/medicine");
 
 require("dotenv").config();
 
