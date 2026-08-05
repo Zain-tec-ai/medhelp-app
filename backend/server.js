@@ -7,7 +7,7 @@ const path = require("path");
 const fs = require("fs");
 const Medicine = require("./models/Medicine");
 
-dotenv.config({ path: path.resolve(__dirname, ".env") });
+require("dotenv").config();
 
 
 const app = express();
