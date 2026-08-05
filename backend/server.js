@@ -2,7 +2,6 @@ const multer = require("multer");
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
 const path = require("path");
 const fs = require("fs");
 const Medicine = require("./models/medicine");
