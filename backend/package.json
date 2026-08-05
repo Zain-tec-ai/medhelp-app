@@ -13,3 +13,5 @@
     "multer": "^2.0.2"
   }
 }
+git add backend/package.json
+git commit -m "Fix backend package.json merge conflict"
